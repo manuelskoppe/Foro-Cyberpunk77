@@ -1,0 +1,62 @@
+/* TopLikedSongs.css */
+.top-songs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+    background: url('https://wallpapercave.com/wp/wp4923981.jpg') center/cover no-repeat fixed;
+  }
+  
+  .top-songs-title {
+    color: #0ff; /* Color azul neón */
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 5px #0ff;
+  }
+  
+  .top-songs-list {
+    width: 100%;
+    max-width: 600px; /* Ancho máximo para los contenedores de las canciones */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los contenedores de las canciones */
+  }
+  
+  .top-song-card {
+    background: rgba(0, 0, 0, 0.85); /* Fondo oscuro con transparencia */
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #0ff; /* Borde azul neón */
+    box-shadow: 0 0 10px #0ff; /* Sombra con efecto neón */
+    display: flex;
+    align-items: center;
+  }
+  
+  .medal {
+    font-size: 3rem;
+    margin-right: 15px; /* Margen a la derecha del emoji de la medalla */
+  }
+  
+  .song-details {
+    flex: 1;
+  }
+  
+  .song-title {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px; /* Espacio debajo del título de la canción */
+  }
+  
+  .song-info {
+    color: #888; /* Color para la información adicional */
+    margin-bottom: 5px; /* Espacio debajo de la información de la canción */
+  }
+  
+  .song-likes {
+    color: #0ff; /* Color azul neón para los likes */
+    font-weight: bold;
+  }
+  

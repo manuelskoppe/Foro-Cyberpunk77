@@ -1,0 +1,66 @@
+/* SongForm.css */
+.songform-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://wallpapercave.com/wp/wp4923981.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+    padding: 4rem 1rem; /* Adjusted padding for mobile responsiveness */
+  }
+  
+  .songform-title {
+    color: #39ff14; /* Neon green for the title */
+    margin-bottom: 2rem;
+    text-shadow: 0 0 5px #39ff14; /* Neon glow effect */
+  }
+  
+  .songform-box {
+    background-color: rgba(0, 0, 0, 0.85); /* Slightly transparent dark background */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #39ff14; /* Neon shadow */
+    width: 100%;
+    max-width: 500px; /* Maximum width for the form */
+  }
+  
+  .songform-label {
+    color: #0ff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .songform-input,
+  .songform-textarea,
+  .songform-button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid #2f2f2f;
+    background-color: #111;
+    color: #fff;
+    outline: none;
+  }
+  
+  .songform-input::placeholder,
+  .songform-textarea::placeholder {
+    color: #555;
+  }
+  
+  .songform-input:focus,
+  .songform-textarea:focus {
+    border-color: #39ff14;
+    box-shadow: 0 0 10px #39ff14;
+  }
+  
+  .songform-textarea {
+    min-height: 150px; /* Minimum height for the text area */
+  }
+  
+  .songform-button {
+    background-color: #bb00
+  }  

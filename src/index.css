@@ -1,0 +1,88 @@
+/* main.css */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+ 
+  background: url('https://wallpapercave.com/wp/wp4923981.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-width: 320px;
+  color: #0ff; /* Cyberpunk often uses bright cyan for text */
+  font-family: 'Orbitron', sans-serif; /* This is a futuristic-looking font */
+  background-color: #000; /* A dark background is typical for cyberpunk aesthetic */
+}
+
+/* Add a neon glow to titles */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: #0ff;
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #00f, 0 0 80px #00f; /* Neon glow effect */
+}
+
+/* Hyperlinks with a neon effect */
+a {
+  font-weight: 500;
+  color: #0ff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; /* Neon glow on hover */
+}
+
+/* Style buttons with a cyberpunk theme */
+button {
+  border-radius: 8px;
+  border: 1px solid #0ff; /* Neon-like border */
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a; /* Dark background for buttons */
+  color: #0ff; /* Neon text */
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+button:hover {
+  background-color: #212121;
+  border-color: #0ff; /* Intensify border color on hover */
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; /* Neon glow on hover */
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Cyberpunk-style media query for light mode */
+@media (prefers-color-scheme: light) {
+  body {
+    color: #0ff;
+    background-color: #000;
+  }
+
+  a:hover {
+    color: #0ff;
+  }
+
+  button {
+    background-color: #333;
+    color: #0ff; /* Keep the neon effect for light mode */
+  }
+}
+
+/* If you're not using Tailwind, you can comment or remove these lines */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

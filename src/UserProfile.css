@@ -1,0 +1,95 @@
+/* UserProfile.css */
+.userProfile-background {
+    background-image: url('https://wallpapercave.com/wp/wp4923981.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .userProfile-container {
+    max-width: 600px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.85); /* Fondo translúcido oscuro */
+    border-radius: 12px;
+    border: 1px solid #00FFFF; /* Borde azul neón */
+    box-shadow: 0 0 20px #00FFFF; /* Sombra exterior azul neón */
+    color: #fff; /* Texto blanco */
+    backdrop-filter: blur(10px); /* Desenfoque del fondo */
+  }
+  
+  .userProfile-title {
+    color: #00FFFF; /* Título en azul neón */
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .userProfile-info {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .userProfile-detail {
+    color: #00FFFF; /* Detalles en azul neón */
+    margin-bottom: 0.5rem;
+  }
+  
+  .userProfile-image {
+    width: 150px; /* Ancho fijo para la imagen */
+    height: 150px; /* Altura fija para mantener la proporción */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio asignado */
+    border-radius: 50%; /* Hace la imagen redonda */
+    border: 2px solid #00FFFF; /* Borde azul neón alrededor de la imagen */
+    box-shadow: 0 0 10px #00FFFF; /* Sombra azul neón */
+    margin: 1rem auto; /* Centrar la imagen horizontalmente y agregar margen vertical */
+  }
+  
+  .userProfile-input {
+    width: 100%; /* Ancho completo dentro del contenedor */
+    padding: 10px;
+    margin-bottom: 1rem; /* Espacio entre los campos de entrada */
+    border: 1px solid #00FFFF;
+    background: none;
+    color: #00FFFF; /* Texto en azul neón */
+    border-radius: 4px;
+  }
+  
+  .userProfile-button {
+    width: 100%; /* Ancho completo */
+    padding: 10px;
+    margin-bottom: 1rem; /* Espacio entre los botones */
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .userProfile-save {
+    background-color: #bb00ff; /* Fondo morado */
+    box-shadow: 0 0 10px #bb00ff; /* Sombra morada */
+  }
+  
+  .userProfile-save:hover {
+    background-color: #d000ff; /* Fondo morado más claro al pasar el ratón */
+    box-shadow: 0 0 20px #d000ff; /* Sombra más intensa */
+  }
+  
+  .userProfile-logout {
+    background-color: #ff0039; /* Fondo rojo */
+    box-shadow: 0 0 10px #ff0039; /* Sombra roja */
+  }
+  
+  .userProfile-logout:hover {
+    background-color: #ff5577; /* Fondo rojo más claro al pasar el ratón */
+    box-shadow: 0 0 20px #ff5577; /* Sombra más intensa */
+  }
+  

@@ -1,0 +1,48 @@
+
+.add-comment-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(10, 25, 47, 0.9); /* Fondo oscuro semi-transparente */
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px 0; /* Ajusta esto según la estructura de tu página */
+  }
+  
+  .comment-input {
+    flex-grow: 1;
+    padding: 10px;
+    background: #000;
+    border: 1px solid #39ff14; /* Borde de color verde neón */
+    border-radius: 5px;
+    color: #fff;
+    outline: none; /* Elimina el anillo de enfoque predeterminado */
+  }
+  
+  .comment-input::placeholder {
+    color: #555;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background: #bb00ff; /* Fondo morado */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(187, 0, 255, 0.7); /* Sombra de texto morado */
+    transition: background 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background: #d000ff; /* Fondo morado más claro */
+    text-shadow: 0 0 10px rgba(208, 0, 255, 0.9);
+  }
+  
+  .submit-button:disabled {
+    background: #333;
+    cursor: not-allowed;
+  }
+  

@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Orbitron', sans-serif;
+  background: url('https://wallpapercave.com/wp/wp4923981.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #0ff; /* Neon blue for the general text color */
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-navbar {
+  background-color: #212121; /* Dark base for navbar */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem; /* Padding reducido */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.app-navbar a, .app-navbar button {
+  color: #0ff; /* Neon blue links and buttons */
+  text-shadow: 0 0 10px #0ff; /* Blue glow */
+  margin: 0 10px; /* Aumenta el margen para más espacio entre enlaces y botones */
+  font-size: 1.5rem; /* Tamaño de fuente más grande para mejor visibilidad */
+  transition: color 0.3s ease;
+  background: transparent; /* Makes button background transparent */
+  border: none; /* Removes button border */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  padding: 0; /* Removes default button padding */
+  outline: none; /* Removes focus outline for aesthetics; consider accessibility implications */
+}
+
+.app-navbar a:hover, .app-navbar button:hover {
+  color: #d000ff; /* Purple hover color */
+  text-shadow: 0 0 20px #d000ff; /* Purple glow */
+}
+
+
+.homepage-background {
+  /* Ensure full height and center content */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Align vertically center */
+  align-items: center; /* Align horizontally center */
+  height: 100vh; /* Full height of the viewport */
+  text-align: center; /* Center text alignment */
+  padding: 0 20px; /* Add padding if needed */
+}
+
+.welcome-message {
+  /* Adjust the font size as needed */
+  font-size: 8rem; /* Increase the font size */
+  font-weight: bold; /* If you want the font to be bold */
+  color: #0ff; /* Neon blue color */
+  text-shadow: 
+    0 0 5px rgb(12, 157, 157),
+    0 0 15px rgb(15, 136, 136),
+    0 0 30px rgb(9, 120, 120); /* Neon glow effect */
+  padding: 20px; /* Adjust padding to increase the size */
+  margin: 0; /* Remove any default margin */
+  border: none; /* Optional: remove border if you prefer */
+  border-radius: 10px; /* Rounded corners for the container */
+  max-width: 100%; /* Ensure it does not overflow the screen width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.btn {
+  background-color: #bb00ff; /* Purple button background */
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 10px #bb00ff; /* Purple glow */
+  transition: background-color 0.3s ease, box-shadow 0.3s;
+}
+
+.btn:hover {
+  background-color: #d000ff; /* Lighter purple on hover */
+  box-shadow: 0 0 20px #d000ff; /* Intensified purple glow */
+}
+
+.footer {
+  background-color: #212121; /* Dark footer background */
+  color: #0ff; /* Neon blue footer text */
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 768px) {
+  .content,
+  .navbar {
+    padding: 10px;
+  }
+}
+
+.position-relative {
+  position: relative;
+}
+

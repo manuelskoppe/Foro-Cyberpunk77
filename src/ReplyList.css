@@ -1,0 +1,61 @@
+/* Reply List container */
+.cyberpunk-container {
+  background: #111; /* Dark background for cyberpunk theme */
+  color: #0ff; /* Neon text color */
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px #0ff; /* Glowing effect */
+}
+
+/* Style for individual replies */
+.reply {
+  background: #222; /* Darker background for each reply */
+  border-left: 3px solid #0ff; /* Neon border to the left */
+  margin-bottom: 10px;
+  padding: 10px;
+  box-shadow: 0 0 5px #0ff; /* Glowing effect */
+  position: relative; /* For positioning the line connector */
+}
+
+/* Glow effect on buttons */
+.like-button, .delete-button {
+  background: #bb00ff; /* Purple button color */
+  color: #fff; /* White text for contrast */
+  border: none; /* Remove borders */
+  cursor: pointer; /* Pointer on hover */
+  padding: 8px 16px; /* Padding for button size */
+  border-radius: 4px; /* Rounded corners for buttons */
+  box-shadow: 0 0 10px #bb00ff; /* Glowing effect */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+}
+
+.like-button:hover, .delete-button:hover {
+  background: #d000ff; /* Lighter purple on hover */
+  box-shadow: 0 0 15px #d000ff; /* Intensified glowing effect */
+}
+
+/* The line that connects replies, with a glowing effect */
+.line-connector {
+  position: absolute;
+  left: -10px; /* Adjust as needed */
+  width: 2px;
+  background-color: #39ff14; /* Neon green */
+  box-shadow: 0 0 5px #39ff14; /* Glowing effect */
+  top: 0;
+  bottom: 0;
+}
+
+/* For the like count */
+.likes-count {
+  font-size: 1rem; /* Slightly larger font size for readability */
+  color: #0ff; /* Neon text color */
+  margin-left: 0.5rem; /* Space between button and text */
+  box-shadow: 0 0 5px #0ff; /* Glowing effect */
+}
+
+/* Image in the reply */
+.reply-image {
+  max-width: 100px; /* Constraint image size */
+  border: 1px solid #0ff; /* Neon border */
+  box-shadow: 0 0 5px #0ff; /* Glowing effect */
+}

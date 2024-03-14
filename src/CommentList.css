@@ -1,0 +1,76 @@
+/* Cyberpunk theme styles for like and delete buttons, and likes count */
+.cyberpunk-theme .like-btn,
+.cyberpunk-theme .delete-btn {
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  color: white;
+  background-color: #d000ff; /* Updated background color */
+  text-shadow: none; /* Text shadow removed for better clarity */
+  box-shadow: 0 0 15px #d000ff; /* Updated box shadow */
+}
+
+.cyberpunk-theme .like-btn:hover,
+.cyberpunk-theme .delete-btn:hover {
+  box-shadow: 0 0 15px #d000ff, 0 0 25px #d000ff; /* Brighter box shadow on hover */
+}
+
+.cyberpunk-theme .likes-count {
+  font-size: 1rem;
+  margin-right: 0.5rem; /* Adjusted to right for consistency */
+  color: #9c27b0;
+}
+
+/* Additional styles for comment clarity */
+.cyberpunk-theme .comment {
+  background-color: #2a2a2a; /* Darker background for comment box */
+  margin-bottom: 1rem;
+  padding: 1rem; /* Increased padding for more space */
+  border-radius: 4px;
+  color: #ffffff; /* White text for readability */
+  border: 1px solid #9c27b0; /* Added border for distinction */
+  box-shadow: 0 0 10px rgba(156, 39, 176, 0.7); /* Optional: Glow effect */
+}
+
+.cyberpunk-theme .comment-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Aligns content and actions on opposite ends */
+}
+
+.cyberpunk-theme .comment-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.cyberpunk-theme .comment-author {
+  font-weight: bold;
+  color: #9c27b0;
+  margin-right: 0.5rem;
+}
+
+.cyberpunk-theme .comment-text {
+  color: #ffffff;
+  margin-right: auto; /* Pushes actions to the right */
+}
+
+.cyberpunk-theme .comment-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cyberpunk-theme .comment-list-title {
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.cyberpunk-theme .replies-container {
+  background-color: #1a1a1a;
+  padding: 0.5rem;
+  border-left: 2px dashed #4a4a4a;
+}

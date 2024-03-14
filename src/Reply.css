@@ -1,0 +1,85 @@
+/* Base styles for cyberpunk theme */
+:root {
+  --neon-green: #39ff14;
+  --neon-blue: #0ff;
+  --dark-bg: #111;
+  --light-neon-green: #afff14;
+  --neon-purple: #bb00ff;
+  --light-neon-purple: #d000ff;
+  --neon-red: #f00;
+  --light-neon-red: #ff8b8b;
+}
+
+/* Apply styles for the reply form and inputs */
+.reply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0;
+  background-color: var(--dark-bg); /* Set the background to match the cyberpunk theme */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--neon-green); /* Add a glow effect */
+}
+
+.reply-input {
+  background-color: transparent; /* Make input background transparent */
+  color: var(--neon-blue); /* Set text color */
+  border: 1px solid var(--neon-green); /* Add a neon border */
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 5px var(--neon-green); /* Inner glow effect */
+}
+
+.reply-input::placeholder {
+  color: var(--neon-blue); /* Set placeholder text color */
+}
+.reply-file-label {
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--neon-purple); /* Assuming var(--neon-purple) is defined */
+  transition: background-color 0.3s ease, box-shadow 0.3s;
+}
+
+/* Add this block for the hover state */
+.reply-file-label:hover {
+  background-color: var(--neon-purple); /* This sets the background color on hover */
+  box-shadow: 0 0 20px var(--neon-purple); /* This increases the glow effect on hover */
+}
+
+.reply-file-input {
+  display: none; /* Hide the default file input */
+}
+
+.reply-image-preview {
+  max-width: 100%;
+  max-height: 120px;
+  border: 1px solid var(--neon-green);
+  box-shadow: 0 0 5px var(--neon-green);
+}
+
+/* Custom button styles */
+.cyberpunk-btn, .reply-submit-btn {
+  background-color: var(--neon-purple); /* Set button background color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--neon-purple); /* Add a glow effect */
+  transition: background-color 0.3s ease, box-shadow 0.3s;
+}
+
+.cyberpunk-btn:hover, .reply-submit-btn:hover {
+  background-color: var(--light-neon-purple); /* Lighten the color on hover */
+  box-shadow: 0 0 20px var(--light-neon-purple); /* Intensify the glow on hover */
+}
+
+.cyberpunk-btn:disabled, .reply-submit-btn:disabled {
+  background-color: #555; /* Set a neutral color for disabled state */
+  box-shadow: none;
+  cursor: not-allowed;
+}

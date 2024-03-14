@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+/* Base styles */
+body, input, button {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Background styles */
+.register-background {
+  background-image: url('https://wallpapercave.com/wp/wp4923981.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form container */
+.register-form-container {
+  background: rgba(18, 18, 18, 0.85); /* Dark background with opacity */
+  backdrop-filter: blur(10px); /* Blur effect for the background */
+  box-shadow: 0 0 10px #0ff; /* Neon glow */
+  border-radius: 12px; /* Rounded borders */
+  padding: 2.5rem;
+  max-width: 450px;
+  margin: 4rem auto;
+  color: #0ff; /* Neon text color */
+}
+
+/* Titles and texts */
+.register-title {
+  text-align: center;
+  color: #0ff;
+  margin-bottom: 2rem;
+}
+
+.error-text {
+  color: #ff0039; /* Neon red for errors */
+  text-align: center;
+}
+
+/* Input styles */
+.register-input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #0ff; /* Neon border */
+  background-color: #000; /* Dark background for inputs */
+  color: #0ff; /* Neon text */
+  border-radius: 8px;
+  box-shadow: 0 0 5px #0ff; /* Glowing effect */
+  margin-bottom: 1rem;
+}
+
+.register-input:focus {
+  outline: none;
+  box-shadow: 0 0 10px #0ff; /* Stronger glow when focused */
+}
+
+/* Button styles */
+.register-button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #bb00ff; /* Purple button */
+  color: white; /* White text */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #bb00ff; /* Glowing effect */
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.register-button:hover {
+  background-color: #d000ff; /* Lighter purple on hover */
+  box-shadow: 0 0 15px #d000ff; /* Stronger glow on hover */
+}

@@ -1,0 +1,92 @@
+/* songlist.css */
+.songlist-container {
+    color: #0ff; /* Texto en neón */
+    background-color: #000; /* Fondo oscuro */
+    border: 1px solid #2f2f2f; /* Bordes sutiles */
+}
+
+.songlist-header {
+    background-color: #111; /* Encabezado más oscuro */
+    color: #39ff14; /* Color de neón para el texto del encabezado */
+    margin-bottom: 2rem; /* Espacio adicional debajo del encabezado */
+}
+
+.actions-container .songlist-button {
+  margin-right: 10px; /* Añade un margen a la derecha de cada botón */
+  margin-left: 10px; /* Añade un margen a la izquierda de cada botón */
+}
+
+.songlist-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.songlist-table th,
+.songlist-table td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #333; /* Borde más oscuro para las filas */
+}
+
+.songlist-table th {
+    background-color: #005f73; /* Fondo de encabezado de tabla */
+    color: #0ff; /* Texto de neón para encabezados de tabla */
+}
+
+.songlist-table tr:hover {
+    background-color: #222; /* Hover más oscuro para las filas */
+}
+
+.songlist-button, .like-button, .delete-button {
+    background-color: #bb00ff; /* Botones de color púrpura */
+    color: #fff; /* Texto blanco */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #bb00ff; /* Sombra de neón para los botones */
+    transition: background-color 0.3s ease, box-shadow 0.3s;
+    margin-left: 10px;
+    
+}
+
+.songlist-button:hover, .like-button:hover, .delete-button:hover {
+    background-color: #d000ff; /* Botón más claro al pasar el ratón por encima */
+    box-shadow: 0 0 20px #d000ff; /* Sombra de neón más intensa al pasar el ratón por encima */
+    margin-left: 10px;
+}
+
+.likes-count {
+  font-size: 1rem; /* Tamaño de fuente mayor */
+  color: #bb00ff; /* Cambia el color al morado */
+  margin-left: 8px; /* Asegúrate de que haya un espacio entre el botón y el texto */
+  transition: color 0.3s ease; /* Transición suave al cambiar el color */
+}
+
+.likes-count:hover {
+  color: #d000ff; /* Color morado claro al pasar el mouse */
+}
+
+/* Agregar estilos para la paginación si es necesario */
+.pagination-container {
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Otras clases y estilos según sea necesario */
+.action-button {
+    margin-right: 10px; /* Espacio a la derecha */
+    margin-bottom: 10px; /* Espacio debajo del botón */
+  }
+  
+  .search-input {
+    border: 1px solid #bb00ff; /* Borde morado */
+    background-color: #000; /* Fondo oscuro */
+    color: #0ff; /* Texto de neón */
+    margin: 0 10px; /* Espacio a los lados del input */
+    padding: 10px;
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 0 10px #bb00ff; /* Sombra de neón */
+  }
+  
