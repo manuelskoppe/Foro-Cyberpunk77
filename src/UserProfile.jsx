@@ -4,7 +4,6 @@ import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import './UserProfile.css';
 
-
 function UserProfile() {
   const { currentUser, updateUserProfile, logout } = useContext(AuthContext);
   const [name, setName] = useState(currentUser?.displayName || '');
@@ -12,7 +11,6 @@ function UserProfile() {
   const [image, setImage] = useState(null);
 
   useEffect(() => {
-    // Actualiza el estado con los datos actuales del usuario cuando el componente se monta o cuando currentUser cambia
     if (currentUser) {
       setName(currentUser.displayName);
       setNationality(currentUser.nationality);
@@ -43,9 +41,11 @@ function UserProfile() {
       if (image) {
         photoURL = await uploadImage();
       }
+      // Preparar objeto newUserProfile solo con datos serializables
       const newUserProfile = { displayName: name, nationality: nationality, ...(photoURL && { photoURL }) };
+
       await setDoc(doc(getFirestore(), 'users', currentUser?.uid), newUserProfile, { merge: true });
-      updateUserProfile({ ...currentUser, ...newUserProfile, ...(photoURL && { photoURL }) });
+      updateUserProfile({ ...currentUser, ...newUserProfile });
     } catch (error) {
       console.error('Error al actualizar perfil:', error);
     }
@@ -73,11 +73,11 @@ function UserProfile() {
         </div>
         <div className="userProfile-actions">
           <button onClick={saveProfile} className="userProfile-button userProfile-save">Guardar Cambios</button>
-          
         </div>
       </div>
     </div>
   );
-  }  
+}
 
-export default UserProfile
+export default UserProfile;
+
