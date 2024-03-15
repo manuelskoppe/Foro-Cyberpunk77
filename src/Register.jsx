@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom'; // Asegúrate de importar useNavigate
 import { app } from "./firebase";
 import './Register.css';
 
@@ -7,17 +8,21 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(''); // Estado para el mensaje de éxito
   const auth = getAuth(app);
+  const navigate = useNavigate(); // Hook para la redirección
 
   const handleRegister = async (e) => {
     e.preventDefault();
     setError('');
+    setSuccess(''); // Resetea el mensaje de éxito en cada intento
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-      console.log(user);
-      // Aquí puedes redirigir al usuario
+      // Configura el mensaje de éxito y navega a la página principal
+      setSuccess('Te has registrado con éxito. Serás redirigido a la página principal.');
+      setTimeout(() => navigate('/'), 3000); // Redirige después de 3 segundos
     } catch (error) {
+      setSuccess(''); // Asegura que el estado de éxito esté limpio si hay un error
       switch (error.code) {
         case 'auth/email-already-in-use':
           setError('Este correo electrónico ya está en uso. Por favor, intenta con otro.');
