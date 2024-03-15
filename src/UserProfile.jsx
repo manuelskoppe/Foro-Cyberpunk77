@@ -12,6 +12,7 @@ function UserProfile() {
 
   useEffect(() => {
     if (currentUser) {
+      console.log('Usuario actual cargado:', currentUser);
       setName(currentUser.displayName);
       setNationality(currentUser.nationality);
     }
@@ -28,6 +29,7 @@ function UserProfile() {
     try {
       const snapshot = await uploadBytes(imageRef, image);
       const photoURL = await getDownloadURL(snapshot.ref);
+      console.log('Imagen subida y URL obtenida:', photoURL);
       return photoURL;
     } catch (error) {
       console.error('Error al subir imagen:', error);
@@ -41,10 +43,11 @@ function UserProfile() {
       if (image) {
         photoURL = await uploadImage();
       }
-      // Preparar objeto newUserProfile solo con datos serializables
       const newUserProfile = { displayName: name, nationality: nationality, ...(photoURL && { photoURL }) };
 
+      console.log('Actualizando perfil en Firestore con:', newUserProfile);
       await setDoc(doc(getFirestore(), 'users', currentUser?.uid), newUserProfile, { merge: true });
+      console.log('Perfil actualizado con éxito');
       updateUserProfile({ ...currentUser, ...newUserProfile });
     } catch (error) {
       console.error('Error al actualizar perfil:', error);
