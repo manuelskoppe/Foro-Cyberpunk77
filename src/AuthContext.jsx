@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'; // Importa signOut
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 export const AuthContext = createContext();
@@ -13,12 +13,9 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const auth = getAuth();
-    const db = getFirestore(); // Inicializa Firestore
-
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        // Si hay un usuario, intenta obtener su perfil de Firestore
-        const userRef = doc(db, 'users', user.uid);
+        const userRef = doc(getFirestore(), 'users', user.uid);
         try {
           const userProfileSnapshot = await getDoc(userRef);
           if (userProfileSnapshot.exists()) {
@@ -32,7 +29,6 @@ export const AuthProvider = ({ children }) => {
           console.error("Error al obtener el documento del usuario:", error);
         }
       } else {
-        // No hay usuario logueado
         setCurrentUser(null);
       }
     });
@@ -43,9 +39,9 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     const auth = getAuth();
     try {
-      await signOut(auth); // Utiliza signOut para cerrar sesión
+      await signOut(auth);
       console.log('Sesión cerrada exitosamente');
-      setCurrentUser(null); // Opcionalmente, actualiza el estado del usuario actual a null
+      setCurrentUser(null);
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
     }
@@ -53,9 +49,8 @@ export const AuthProvider = ({ children }) => {
 
   const updateUserProfile = async (updates) => {
     if (!currentUser || !currentUser.uid) return;
-  
-    const db = getFirestore();
-    const userRef = doc(db, 'users', currentUser.uid);
+
+    const userRef = doc(getFirestore(), 'users', currentUser.uid);
     console.log("Actualizando perfil en Firestore con:", updates);
     try {
       await setDoc(userRef, updates, { merge: true });
@@ -69,7 +64,7 @@ export const AuthProvider = ({ children }) => {
   const value = {
     currentUser,
     updateUserProfile,
-    logout, // Incluye logout aquí para hacerlo accesible en el contexto
+    logout,
   };
 
   return (
@@ -78,3 +73,4 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
