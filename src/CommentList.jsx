@@ -39,43 +39,41 @@ const CommentList = ({ songId }) => {
     fetchComments();
   };
   return (
-    <div className="cyberpunk-container">
-      <h3 className="comment-list-title">Comentarios</h3>
-      <ul className="comments-list">
-        {comments.map((comment, index) => (
-          <li key={comment.id} className={`mt-2 flex items-start ${index > 0 ? 'comment' : ''}`}>
-            {/* Optionally add line-connector if you want to visually connect comments */}
-            {index > 0 && <div className="line-connector"></div>}
-            <div className="flex flex-col space-y-2 w-full">
-              <div className="flex items-center space-x-2 w-full">
-                <p className="flex-1 text-sm cyberpunk-text">
-                  {comment.author}: {comment.text}
-                  {comment.imageUrl && (
-                    <img src={comment.imageUrl} alt="Comment image" className="comment-image" />
-                  )}
-                </p>
-                <div className="flex items-center">
-                  <button onClick={() => handleLike(comment.id)} className="like-button">
-                    Me gusta
-                  </button>
-                  <span className="likes-count">{comment.likeCount || 0}</span>
-                </div>
-                {currentUser && currentUser.uid === comment.uid && (
-                  <button onClick={() => handleDeleteComment(comment.id)} className="delete-button">
-                    Borrar
-                  </button>
-                )}
-              </div>
-              {/* Replies go here */}
-              <div className="replies-container">
-                <ReplyList commentId={comment.id} songId={songId} onReplyAdded={fetchComments} />
-                <ReplyForm commentId={comment.id} songId={songId} onReplyAdded={fetchComments} />
-              </div>
+    <div className="cyberpunk-container cyberpunk-theme">
+      {comments.map((comment, index) => (
+        <div key={comment.id} className={`comment-block ${index > 0 ? 'mt-2' : ''}`}>
+          <div className="comment-title-wrapper">
+            <h3 className="comment-title">Comentario:</h3>
+            {/* Unicode character for the down arrow */}
+            <div className="comment-arrow-down">▼</div>
+          </div>
+          <div className="comment-content-wrapper">
+            <div className="comment-content">
+              <span className="comment-author">{comment.author}</span>
+              <span className="comment-text">{comment.text}</span>
+              {comment.imageUrl && (
+                <img src={comment.imageUrl} alt="Comment" className="comment-image" />
+              )}
             </div>
-          </li>
-        ))}
-      </ul>
+            <div className="comment-actions">
+              <button onClick={() => handleLike(comment.id)} className="like-button">
+                Me gusta
+              </button>
+              <span className="likes-count">{comment.likeCount || 0}</span>
+              {currentUser && currentUser.uid === comment.uid && (
+                <button onClick={() => handleDeleteComment(comment.id)} className="delete-button">
+                  Borrar
+                </button>
+              )}
+            </div>
+          </div>
+          <div className="replies-container">
+            <ReplyList commentId={comment.id} songId={songId} onReplyAdded={fetchComments} />
+            <ReplyForm commentId={comment.id} songId={songId} onReplyAdded={fetchComments} />
+          </div>
+        </div>
+      ))}
     </div>
   );
-}; 
+              }  
 export default CommentList;

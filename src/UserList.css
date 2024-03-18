@@ -1,0 +1,88 @@
+/* UserList.css */
+
+.user-list-container {
+    padding: 2rem;
+    color: #ffffff; /* Color de texto blanco */
+    max-width: 800px;
+    margin: 5rem auto 2rem; /* Aumenta el margen superior para bajar la lista */
+    background: rgba(0, 0, 0, 0.75); /* Fondo oscuro para la lista */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Oculta lo que se desborde */
+  }
+  
+  .user-list-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: #0ff;    ; /* Color para el título */
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1); /* Línea debajo del título */
+    background-color: rgba(0, 0, 0, 0.75); /* Fondo para evitar el difuminado */
+    width: 100%; /* Asegura que el fondo cubra todo el ancho */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  }
+  
+  .user-list-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Quitar márgenes para una alineación adecuada */
+  }
+  
+  .user-list-item {
+    background: rgba(255, 255, 255, 0.05); /* Ligero contraste para cada elemento */
+    margin-bottom: 1rem;
+    padding: 1.2rem; /* Un poco más de relleno para una mejor visualización */
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s; /* Añade un efecto de transición suave */
+  }
+  
+  .user-list-item:hover {
+    background: rgba(255, 255, 255, 0.1); /* Cambio de fondo al pasar el mouse */
+  }
+  
+  .user-list-item > span {
+    margin-right: 1rem;
+    font-size: 1.2rem; /* Ajusta el tamaño del texto de cada span */
+    color: #9df9ef; /* Un color que destaque sobre el fondo oscuro */
+  }
+  
+  .loading-users {
+    text-align: center;
+    font-size: 2rem;
+    color: #7ad7f0; /* Un azul claro para el mensaje de carga */
+  }
+  
+  .user-list-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.75); /* Añadir si quieres un fondo para los encabezados */
+    color: #9df9ef;
+  }
+  
+  .user-list-item {
+    display: flex;
+    justify-content: space-between;
+    /* Resto de estilos */
+  }
+  .user-list-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.75); /* Añadir si quieres un fondo para los encabezados */
+    color: #9df9ef;
+  }
+  
+  .user-list-item {
+    display: flex;
+    justify-content: space-between;
+    /* Resto de estilos */
+  }

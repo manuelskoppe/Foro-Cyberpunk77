@@ -115,7 +115,6 @@ const SongDetail = () => {
     <div className="song-detail-container">
       <Link to="/" className="song-detail-back-link">Volver a la página principal</Link>
       <div className="song-detail-header">
-        
         <h2 className="song-detail-title">Detalles del Post</h2>
       </div>
       <div className="song-detail-content">
@@ -126,8 +125,10 @@ const SongDetail = () => {
         <DetailBox label="Contenido del Post" content={song?.content} isContent={true} />
         {renderMedia()}
         {renderYoutubeEmbed()}
-        <div className="song-detail-comments">
-          <AddCommentForm songId={songId} onCommentAdded={handleCommentAdded} />
+        <div className="song-detail-comments-section">
+        <AddCommentForm songId={songId} onCommentAdded={handleCommentAdded} />
+          <h3 className="song-detail-comments-title">Comentarios</h3>
+       
           <CommentList songId={songId} commentUpdateTrigger={commentsUpdateCounter} />
         </div>
       </div>

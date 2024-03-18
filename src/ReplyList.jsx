@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { getRepliesOfComment, deleteReplyFromComment, addLikeToReply } from './firestoreService';
 import './ReplyList.css'; 
-
+import { AuthContext } from './AuthContext'; // Asegúrate de que la ruta sea correcta
 
 const ReplyList = ({ songId, commentId, onReplyAdded }) => {
   const [replies, setReplies] = useState([]);
+  const { currentUser } = useContext(AuthContext); // Usando AuthContext para obtener el usuario actual
 
   useEffect(() => {
     fetchReplies();
-  }, [songId, commentId, onReplyAdded]); // Añade onReplyAdded a las dependencias para refrescar las respuestas
+  }, [songId, commentId, onReplyAdded]);
 
   const fetchReplies = async () => {
     const fetchedReplies = await getRepliesOfComment(songId, commentId);
@@ -17,7 +18,7 @@ const ReplyList = ({ songId, commentId, onReplyAdded }) => {
 
   const handleDeleteReply = async (replyId) => {
     await deleteReplyFromComment(songId, commentId, replyId);
-    fetchReplies(); // Actualiza la lista de respuestas después de borrar
+    fetchReplies();
   };
 
  const checkmylike= async (userId,reply) => { 
@@ -56,7 +57,6 @@ const ReplyList = ({ songId, commentId, onReplyAdded }) => {
       <ul className="comments-list">
         {replies.map((reply, index) => (
           <li key={reply.id} className={`mt-2 flex items-start ${index > 0 ? 'reply' : ''}`}>
-            {/* This will be the line that connects the comments */}
             {index > 0 && <div className="line-connector"></div>}
             <div className="flex flex-col space-y-2 w-full">
               <div className="flex items-start space-x-2 w-full">
@@ -66,19 +66,21 @@ const ReplyList = ({ songId, commentId, onReplyAdded }) => {
                 )}
                 <div className="flex items-center">
                   <button
-                    onClick={() => handleLikeReply(reply.id, "userIdPlaceholder")} // Make sure to replace "userIdPlaceholder" with actual user ID
+                    onClick={() => handleLikeReply(reply.id, "userIdPlaceholder")} // Asegúrate de reemplazar "userIdPlaceholder" con el ID real del usuario
                     className="like-button cyberpunk-button"
                   >
                     Me gusta
                   </button>
                   <span className="likes-count cyberpunk-likes">{reply.likeCount || 0}</span>
                 </div>
-                <button
-                  onClick={() => handleDeleteReply(reply.id)}
-                  className="delete-button cyberpunk-button"
-                >
-                  Borrar
-                </button>
+                {currentUser && currentUser.uid === reply.uid && ( // Solo muestra el botón de borrar si el usuario actual es el autor
+                  <button
+                    onClick={() => handleDeleteReply(reply.id)}
+                    className="delete-button cyberpunk-button"
+                  >
+                    Borrar
+                  </button>
+                )}
               </div>
             </div>
           </li>
@@ -86,5 +88,6 @@ const ReplyList = ({ songId, commentId, onReplyAdded }) => {
       </ul>
     </div>
   );
-                }  
+};  
+
 export default ReplyList;

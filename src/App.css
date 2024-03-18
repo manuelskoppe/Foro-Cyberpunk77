@@ -14,6 +14,7 @@ html, body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-width: 100%;
 }
 
 .app-navbar {
@@ -53,9 +54,11 @@ html, body {
   flex-direction: column;
   justify-content: center; /* Align vertically center */
   align-items: center; /* Align horizontally center */
-  height: 100vh; /* Full height of the viewport */
+  min-height: 80vh; /* Minimum height of the component */
+  max-height: 80vh; /* Maximum height of the component */
   text-align: center; /* Center text alignment */
   padding: 0 20px; /* Add padding if needed */
+  overflow: hidden; /* Hide overflow */
 }
 
 .welcome-message {

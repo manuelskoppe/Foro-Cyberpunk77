@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { AuthProvider, useAuth } from './AuthContext.jsx'; // Asegura que la ruta sea correcta
+import { AuthProvider, useAuth } from './AuthContext.jsx'; // Asegúrate de que la ruta sea correcta
 import ProtectedRoute from './ProtectedRoute';
 import SongForm from './SongForm';
 import SongList from './SongList';
@@ -9,12 +9,12 @@ import Register from './Register';
 import Login from './Login';
 import UserProfile from './UserProfile';
 import TopLikedSongs from './TopLikedSongs';
+import UserList from './UserList'; // Asegúrate de que el componente UserList esté correctamente importado
 import './App.css';
 
 function AuthLinks() {
   const { currentUser, logout } = useAuth();
 
-  // Esta función maneja el cierre de sesión
   const handleLogout = async () => {
     try {
       await logout();
@@ -27,6 +27,8 @@ function AuthLinks() {
     return (
       <>
         <Link to="/perfil" className="navbar-link">Perfil</Link>
+        {/* Agregamos el enlace a la lista de usuarios */}
+        <Link to="/usuarios" className="navbar-link">Usuarios</Link>
         <button onClick={handleLogout} className="navbar-link">Cerrar Sesión</button>
       </>
     );
@@ -78,6 +80,8 @@ function App() {
               <Route path="/nuevo-post" element={<ProtectedRoute><SongForm /></ProtectedRoute>} />
               <Route path="/perfil" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
               <Route path="/top-liked" element={<ProtectedRoute><TopLikedSongs /></ProtectedRoute>} />
+              {/* Ruta protegida para el componente de la lista de usuarios */}
+              <Route path="/usuarios" element={<ProtectedRoute><UserList /></ProtectedRoute>} />
             </Routes>
           </div>
         </div>

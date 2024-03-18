@@ -1,6 +1,6 @@
 /* Cyberpunk theme styles for like and delete buttons, and likes count */
-.cyberpunk-theme .like-btn,
-.cyberpunk-theme .delete-btn {
+.cyberpunk-theme .like-button,
+.cyberpunk-theme .delete-button {
   border: none;
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -8,66 +8,79 @@
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   color: white;
-  background-color: #d000ff; /* Updated background color */
-  text-shadow: none; /* Text shadow removed for better clarity */
-  box-shadow: 0 0 15px #d000ff; /* Updated box shadow */
+  background-color: #d000ff;
+  box-shadow: 0 0 15px #d000ff;
 }
 
-.cyberpunk-theme .like-btn:hover,
-.cyberpunk-theme .delete-btn:hover {
-  box-shadow: 0 0 15px #d000ff, 0 0 25px #d000ff; /* Brighter box shadow on hover */
+.cyberpunk-theme .like-button:hover,
+.cyberpunk-theme .delete-button:hover {
+  box-shadow: 0 0 15px #d000ff, 0 0 25px #d000ff;
 }
 
 .cyberpunk-theme .likes-count {
   font-size: 1rem;
-  margin-right: 0.5rem; /* Adjusted to right for consistency */
+  margin-left: 0.5rem; /* Ajustado a la izquierda */
   color: #9c27b0;
 }
 
-/* Additional styles for comment clarity */
+/* Estilos adicionales para claridad en los comentarios */
 .cyberpunk-theme .comment {
-  background-color: #2a2a2a; /* Darker background for comment box */
+  background-color: #2a2a2a;
   margin-bottom: 1rem;
-  padding: 1rem; /* Increased padding for more space */
+  padding: 1rem;
   border-radius: 4px;
-  color: #ffffff; /* White text for readability */
-  border: 1px solid #9c27b0; /* Added border for distinction */
-  box-shadow: 0 0 10px rgba(156, 39, 176, 0.7); /* Optional: Glow effect */
+  color: #ffffff;
+  border: 1px solid #9c27b0;
+  box-shadow: 0 0 10px rgba(156, 39, 176, 0.7);
 }
 
-.cyberpunk-theme .comment-main {
+.cyberpunk-theme .comment-entry {
   display: flex;
-  align-items: center;
-  justify-content: space-between; /* Aligns content and actions on opposite ends */
+  justify-content: center; /* Centra todo el contenido del comentario */
+  align-items: center; /* Alinea los elementos verticalmente */
+  flex-wrap: wrap; /* Permite que los elementos se pasen a la línea siguiente si no caben */
+  gap: 0.5rem; /* Espacio entre elementos */
+  margin-bottom: 0.5rem; /* Espacio debajo del comentario */
 }
 
-.cyberpunk-theme .comment-content {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-}
-
-.cyberpunk-theme .comment-author {
+.cyberpunk-theme .comment-author,
+.cyberpunk-theme .comment-text {
   font-weight: bold;
   color: #9c27b0;
   margin-right: 0.5rem;
 }
 
 .cyberpunk-theme .comment-text {
+  font-size: 1.2rem; /* Tamaño de fuente para el comentario */
   color: #ffffff;
-  margin-right: auto; /* Pushes actions to the right */
 }
 
 .cyberpunk-theme .comment-actions {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center; /* Centra los botones y el contador de 'me gusta' */
 }
 
+/* Estilos para el título de la lista de comentarios */
 .cyberpunk-theme .comment-list-title {
   color: #ffffff;
+  text-align: center;
+  font-size: 2.5rem; /* Tamaño de fuente aumentado para 'Comentario:' */
   margin-bottom: 1rem;
+  display: flex; /* Usamos flex para alinear el título con la flecha */
+  flex-direction: column; /* Organiza en columna el título y la flecha */
+  align-items: center; /* Centra los elementos */
 }
+
+/* Estilo para agregar la flecha hacia abajo usando un carácter Unicode */
+.cyberpunk-theme .comment-list-title::after {
+  content: '▼'; /* Carácter Unicode para la flecha */
+  font-size: 2rem; /* Tamaño del carácter flecha */
+  color: #d000ff; /* Color de la flecha */
+  margin-top: 0.5rem; /* Espacio entre el título y la flecha */
+  /* No se necesitan las propiedades de background, position, left ni transform */
+}
+
 
 .cyberpunk-theme .replies-container {
   background-color: #1a1a1a;

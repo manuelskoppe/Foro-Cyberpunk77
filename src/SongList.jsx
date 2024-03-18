@@ -89,22 +89,6 @@ const SongList = () => {
   );
 
 
-// Estilo para el contenedor principal con la imagen de fondo
-/*const containerStyle = {
-  backgroundImage: `url('https://wallpapercave.com/wp/wp4923981.jpg')`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  backgroundAttachment: 'fixed', // Asegurarse de que la imagen de fondo sea fija
-  width: '100vw',
-  minHeight: '100vh',
-  paddingTop: '4rem', // Añadido para evitar que el contenido se solape con el navbar
-};;*/
-
-
-
-
-
-
 return (
   <div className="songlist-container">
   <h2 className="songlist-header">Lista de Post</h2>

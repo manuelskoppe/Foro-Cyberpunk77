@@ -101,3 +101,20 @@
     border-radius: 5px;
     box-shadow: 0 0 10px #39ff14; /* Sombra para efecto de brillo */
   }
+
+  .song-detail-comments-section .song-detail-comments-title {
+    font-size: 2em; /* Tamaño de fuente más grande para el título de comentarios */
+    text-align: center; /* Centrar título */
+    margin: 1rem 0; /* Espaciado antes y después del título */
+    position: relative; /* Necesario para el pseudo-elemento de la flecha */
+  }
+  
+  .song-detail-comments-section .song-detail-comments-title::after {
+    content: '▼'; /* Símbolo de flecha hacia abajo */
+    font-size: 1.5em; /* Tamaño de la flecha */
+    color: #d000ff; /* Color de la flecha */
+    display: block; /* Crea una nueva línea */
+    text-align: center; /* Centrar flecha debajo del título */
+    margin-top: 0.5rem; /* Espacio entre el título y la flecha */
+  }
+  

@@ -1,14 +1,22 @@
-/* songlist.css */
 .songlist-container {
-    color: #0ff; /* Texto en neón */
-    background-color: #000; /* Fondo oscuro */
-    border: 1px solid #2f2f2f; /* Bordes sutiles */
+  color: #0ff; /* Texto en neón */
+  background-color: #000; /* Fondo oscuro */
+  border: 1px solid #2f2f2f; /* Bordes sutiles */
+  min-width: 100%; /* Establece un ancho mínimo para el contenedor */
+  min-height: 100vh; /* Altura mínima para que ocupe la altura de la ventana */
+  max-height: 100vh; /* Altura máxima para que no supere la altura de la ventana */
+  width: 100%; /* Asegura que el contenedor se extienda por todo el ancho */
+  margin-top: 20px; /* Margen superior */
+  padding-bottom: 20px; /* Espacio en el fondo para evitar que el contenido toque el borde */
+  display: flex; /* Utiliza flexbox para alinear el contenido */
+  flex-direction: column; /* Orientación vertical del flexbox */
+  justify-content: flex-start; /* Alinea el contenido al principio del contenedor */
 }
 
 .songlist-header {
-    background-color: #111; /* Encabezado más oscuro */
-    color: #39ff14; /* Color de neón para el texto del encabezado */
-    margin-bottom: 2rem; /* Espacio adicional debajo del encabezado */
+  background-color: #111; /* Encabezado más oscuro */
+  color: #39ff14; /* Color de neón para el texto del encabezado */
+  margin-bottom: 2rem; /* Espacio adicional debajo del encabezado */
 }
 
 .actions-container .songlist-button {
@@ -17,44 +25,48 @@
 }
 
 .songlist-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
+  table-layout: fixed; /* Asegura que todas las columnas tengan un ancho fijo */
+  width: 100%; /* Asegura que la tabla se extienda por todo el ancho del contenedor */
+  margin-top: 20px;
+  border-collapse: collapse;
 }
+
 
 .songlist-table th,
 .songlist-table td {
-    text-align: left;
-    padding: 12px;
-    border-bottom: 1px solid #333; /* Borde más oscuro para las filas */
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #333; /* Borde más oscuro para las filas */
+  overflow: hidden; /* Asegúrate de que el contenido no desborde */
+  text-overflow: ellipsis; /* Añade elipses si el contenido es muy largo */
+  white-space: nowrap; /* Evita que el texto se envuelva a la línea siguiente */
 }
 
 .songlist-table th {
-    background-color: #005f73; /* Fondo de encabezado de tabla */
-    color: #0ff; /* Texto de neón para encabezados de tabla */
+  background-color: #005f73; /* Fondo de encabezado de tabla */
+  color: #0ff; /* Texto de neón para encabezados de tabla */
 }
 
 .songlist-table tr:hover {
-    background-color: #222; /* Hover más oscuro para las filas */
+  background-color: #222; /* Hover más oscuro para las filas */
 }
 
 .songlist-button, .like-button, .delete-button {
-    background-color: #bb00ff; /* Botones de color púrpura */
-    color: #fff; /* Texto blanco */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 0 10px #bb00ff; /* Sombra de neón para los botones */
-    transition: background-color 0.3s ease, box-shadow 0.3s;
-    margin-left: 10px;
-    
+  background-color: #bb00ff; /* Botones de color púrpura */
+  color: #fff; /* Texto blanco */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #bb00ff; /* Sombra de neón para los botones */
+  transition: background-color 0.3s ease, box-shadow 0.3s;
+  margin-left: 10px;
 }
 
 .songlist-button:hover, .like-button:hover, .delete-button:hover {
-    background-color: #d000ff; /* Botón más claro al pasar el ratón por encima */
-    box-shadow: 0 0 20px #d000ff; /* Sombra de neón más intensa al pasar el ratón por encima */
-    margin-left: 10px;
+  background-color: #d000ff; /* Botón más claro al pasar el ratón por encima */
+  box-shadow: 0 0 20px #d000ff; /* Sombra de neón más intensa al pasar el ratón por encima */
+  margin-left: 10px;
 }
 
 .likes-count {
@@ -76,17 +88,22 @@
 
 /* Otras clases y estilos según sea necesario */
 .action-button {
-    margin-right: 10px; /* Espacio a la derecha */
-    margin-bottom: 10px; /* Espacio debajo del botón */
-  }
-  
-  .search-input {
-    border: 1px solid #bb00ff; /* Borde morado */
-    background-color: #000; /* Fondo oscuro */
-    color: #0ff; /* Texto de neón */
-    margin: 0 10px; /* Espacio a los lados del input */
-    padding: 10px;
-    border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 0 0 10px #bb00ff; /* Sombra de neón */
-  }
-  
+  margin-right: 10px; /* Espacio a la derecha */
+  margin-bottom: 10px; /* Espacio debajo del botón */
+}
+
+.search-input {
+  border: 1px solid #bb00ff; /* Borde morado */
+  background-color: #000; /* Fondo oscuro */
+  color: #0ff; /* Texto de neón */
+  margin: 0 10px; /* Espacio a los lados del input */
+  padding: 10px;
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 0 10px #bb00ff; /* Sombra de neón */
+}
+.table-container {
+  flex: 1; /* Permite que el contenedor de la tabla crezca y llene el espacio disponible */
+  width: 100%; /* Ancho completo */
+  margin-top: 20px; /* Margen superior para la tabla */
+  overflow: auto; /* Permite desplazamiento cuando el contenido excede la altura del contenedor */
+}
