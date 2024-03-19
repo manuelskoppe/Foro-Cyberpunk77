@@ -63,7 +63,7 @@ html, body {
 
 .welcome-message {
   /* Adjust the font size as needed */
-  font-size: 8rem; /* Increase the font size */
+  font-size: calc(6rem + 2vw); /* Increase the font size */
   font-weight: bold; /* If you want the font to be bold */
   color: #0ff; /* Neon blue color */
   text-shadow: 
@@ -99,15 +99,42 @@ html, body {
   padding: 10px 0;
 }
 
-/* Add media queries for responsiveness */
-@media (max-width: 768px) {
-  .content,
-  .navbar {
-    padding: 10px;
+
+
+/* Media queries para ajustar el tamaño de la fuente en diferentes tamaños de pantalla */
+@media (max-width: 1024px) {
+  .welcome-message {
+    font-size: calc(6rem + 2vw);  /* Más grande para pantallas grandes */
   }
 }
 
-.position-relative {
-  position: relative;
+@media (max-width: 768px) {
+  .app-navbar {
+    flex-direction: column; /* Barra de navegación en columna para espacios reducidos */
+    padding: 0.5rem;
+  }
+
+  .app-navbar a, .app-navbar button {
+    font-size: 1rem; /* Tamaño de fuente más pequeño para la barra de navegación */
+    margin: 5px 0; /* Ajusta el margen para elementos en disposición vertical */
+  }
+
+  .welcome-message {
+    font-size: calc(3rem + 2vw); /* Ligeramente más grande para dispositivos medianos */
+  }
+
+  .homepage-background, .app-container {
+    padding: 0 10px; /* Ajusta el padding para evitar que el contenido toque los bordes de la pantalla */
+  }
 }
 
+@media (max-width: 480px) {
+  .welcome-message {
+    font-size: calc(2rem + 2vw); /* Ajuste para teléfonos muy pequeños */
+  }
+}
+
+/* Ajustes para todos los tamaños de pantalla */
+.btn, .app-navbar a, .app-navbar button {
+  font-size: calc(1rem + 1vw); /* Tamaño de fuente adaptable según el ancho de la ventana */
+}

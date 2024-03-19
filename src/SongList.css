@@ -1,16 +1,16 @@
 .songlist-container {
-  color: #0ff; /* Texto en neón */
-  background-color: #000; /* Fondo oscuro */
-  border: 1px solid #2f2f2f; /* Bordes sutiles */
-  min-width: 100%; /* Establece un ancho mínimo para el contenedor */
-  min-height: 100vh; /* Altura mínima para que ocupe la altura de la ventana */
-  max-height: 100vh; /* Altura máxima para que no supere la altura de la ventana */
-  width: 100%; /* Asegura que el contenedor se extienda por todo el ancho */
-  margin-top: 20px; /* Margen superior */
-  padding-bottom: 20px; /* Espacio en el fondo para evitar que el contenido toque el borde */
-  display: flex; /* Utiliza flexbox para alinear el contenido */
-  flex-direction: column; /* Orientación vertical del flexbox */
-  justify-content: flex-start; /* Alinea el contenido al principio del contenedor */
+  color: #0ff;
+  background-color: #000;
+  border: 1px solid #2f2f2f;
+  min-width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 100%;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .songlist-header {
@@ -106,4 +106,53 @@
   width: 100%; /* Ancho completo */
   margin-top: 20px; /* Margen superior para la tabla */
   overflow: auto; /* Permite desplazamiento cuando el contenido excede la altura del contenedor */
+}
+
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 768px) {
+  .songlist-container {
+    padding: 0 10px;
+  }
+
+  .songlist-table, .songlist-table th, .songlist-table td {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+
+  .songlist-button, .like-button, .delete-button {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    margin: 2px;
+    min-width: 30px;
+  }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+  .songlist-container {
+    padding: 0;
+  }
+
+  .songlist-table, .songlist-table th, .songlist-table td {
+    font-size: 0.6rem;
+    padding: 4px;
+  }
+
+  .songlist-button, .like-button, .delete-button {
+    padding: 2px 4px;
+    font-size: 0.6rem;
+    margin: 1px;
+    min-width: 25px; /* Asegúrate de que hay espacio suficiente para el texto */
+  }
+
+  .table-container {
+    overflow-x: auto; /* Permite desplazamiento horizontal en tablas pequeñas */
+  }
+  
+  /* Asegura que los botones de acción siempre sean visibles */
+  .actions-cell button {
+    display: inline-block; /* Evita que los botones se oculten */
+    white-space: nowrap; /* Mantiene el texto de los botones en una sola línea */
+  }
 }
