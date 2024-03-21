@@ -5,21 +5,21 @@ import { useAuth } from './AuthContext';
 import './SongList.css'; // Asegúrate de que la ruta es correcta
 
 
-const pageSize = 10; // Set the number of posts per page
+
 
 const SongList = () => {
   const [songs, setSongs] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [lastVisible, setLastVisible] = useState(null); // For pagination
-  const [isLoading, setIsLoading] = useState(false); // To show loading status
+  const [isLoading, setIsLoading] = useState(true); // To show loading status
   const { currentUser } = useAuth();
-
+  const pageSize = songs.length || 20 ; // Set the number of posts per page
   useEffect(() => {
     fetchSongs();
   }, []);
 
   const fetchSongs = async (newPage = false) => {
-    setIsLoading(true);
+    setIsLoading(!isLoading);
     try {
       const { songs: newSongs, lastVisible: newLastVisible } = await getSongs(lastVisible, pageSize, newPage);
       console.log(newSongs); // Check if the songs are fetched correctly
@@ -88,76 +88,53 @@ const SongList = () => {
     song.genre.toLowerCase().includes(searchTerm)
   );
 
-
-return (
-  <div className="songlist-container">
-  <h2 className="songlist-header">Lista de Post</h2>
-
-  <div className="actions-container">
-    <Link to="/nuevo-post" className="songlist-button action-button">
-      Crear Nuevo Post
-    </Link>
-    <input
-      type="text"
-      placeholder="Buscar por género"
-      className="search-input"
-      onChange={handleSearchChange}
-    />
-    <Link to="/" className="songlist-button action-button">
-      Ir a la Página Principal
-    </Link>
-  </div>
-
-  {isLoading && <div className="text-center"><div className="spinner" /></div>}
-
-  <div className="table-container">
-    <table className="songlist-table">
-      <thead>
-        <tr> 
-          <th>Título</th>
-          <th>Autor</th>
-          <th>Año</th>
-          <th>Género</th>
-          <th>Likes</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {filteredSongs.map((song) => (
-          <tr key={song.id}>
-            <td>
-              <Link to={`/songs/${song.id}`} className="table-link">{song.title}</Link>
-            </td>
-            <td>{song.artist}</td>
-            <td>{song.year}</td>
-            <td>{song.genre}</td>
-            <td>{song.likeCount || 0}</td>
-            <td className="actions-cell">
-              <button onClick={() => handleDelete(song.id)} className="songlist-button delete-button">
-                Borrar
-              </button>
-              <button onClick={() => handleLike(song.id)} className="songlist-button like-button">
-                Me gusta
-              </button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-
-  <div className="pagination-container">
-    <button
-      onClick={handleNext}
-      disabled={isLoading || filteredSongs.length < pageSize}
-      className="songlist-button"
-    >
-      Cargar más
-    </button>
-  </div>
-</div>
-
-);
+  return (
+    <div className="songlist-container">
+      <h2 className="songlist-header">Lista de Post</h2>
+      <div className="actions-container">
+        <Link to="/nuevo-post" className="songlist-button action-button">Crear Nuevo Post</Link>
+        <input type="text" placeholder="Buscar por género" className="search-input" onChange={handleSearchChange} />
+        <Link to="/" className="songlist-button action-button">Ir a la Página Principal</Link>
+      </div>
+      {isLoading && <div className="text-center"><div className="spinner" /></div>}
+      <div className="table-container">
+        <table className="songlist-table">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Autor</th>
+              <th>Año</th>
+              <th>Género</th>
+              <th>Likes</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredSongs.map((song) => (
+              <tr key={song.id}>
+                <td><Link to={`/songs/${song.id}`} className="table-link">{song.title}</Link></td>
+                <td>{song.artist}</td>
+                <td>{song.year}</td>
+                <td>{song.genre}</td>
+                <td>{song.likeCount || 0}</td>
+                <td className="actions-cell">
+                  {currentUser && song.uid === currentUser.uid && <button onClick={() => handleDelete(song.id)} className="songlist-button delete-button">Borrar</button>}
+                  <button onClick={() => handleLike(song.id)} className="songlist-button like-button">Me gusta</button>
+                </td>
+              </tr>
+            ))}
+            </tbody>
+        </table>
+        {/* Sentinel element for infinite scrolling
+        <div ref={sentinelRef} style={{ height: "20px" }}></div>
+      </div>
+      {/* Loading spinner for when new songs are being fetched */}
+      {isLoading && <div className="loading-more-songs">Cargando más canciones...</div>}
+    </div> */</div>
+  );
 };
 
+
+
 export default SongList;
+

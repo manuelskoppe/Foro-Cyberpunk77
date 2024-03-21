@@ -1,38 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { db } from './firebase';
-import { collection, addDoc, doc, getDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import { useAuth } from './AuthContext';
 import AddCommentForm from './AddCommentForm';
 import CommentList from './CommentList';
 import './SongDetail.css';
-// Firestore function to add a new post
-export const addPostWithImageAndContent = async (postData, imageUrl, content, youtubeUrl) => {
-  const postsRef = collection(db, 'posts');
-  try {
-    const docData = {
-      ...postData,
-      imageUrl: imageUrl,
-      content: content,
-      youtubeUrl: youtubeUrl, // Add 'youtubeUrl' to the document
-      createdAt: serverTimestamp()
-    };
-
-    const docRef = await addDoc(postsRef, docData);
-    console.log("Post created with ID:", docRef.id);
-    return docRef.id;
-  } catch (error) {
-    console.error("Error creating post:", error);
-    return null;
-  }
-};
 
 const SongDetail = () => {
   let { songId } = useParams();
   const { currentUser } = useAuth();
   const [song, setSong] = useState(null);
   const [loading, setLoading] = useState(true);
-  // Actualizado para utilizar un contador para la actualización de comentarios
   const [commentsUpdateCounter, setCommentsUpdateCounter] = useState(0);
 
   useEffect(() => {
@@ -54,10 +33,8 @@ const SongDetail = () => {
     };
 
     fetchSong();
-  // Aquí se cambia a commentsUpdateCounter para que cada vez que cambie, se vuelva a ejecutar este efecto
   }, [songId, commentsUpdateCounter]);
 
-  // Actualizado para cambiar el contador en lugar de un booleano
   const handleCommentAdded = () => {
     setCommentsUpdateCounter(curr => curr + 1);
   };
@@ -77,13 +54,14 @@ const SongDetail = () => {
       return (
         <DetailBox
           label="Imagen del Post"
-          content={<img src={song.imageUrl} alt="Post" className="song-detail-image" />}
+          content={<img src={song.imageUrl} alt="Post" className="song-detail-image" style={{maxWidth: '500px'}} />}
           isContent={true}
         />
       );
     }
     return null;
   };
+
   const renderYoutubeEmbed = () => {
     if (song.youtubeUrl) {
       const videoId = new URL(song.youtubeUrl).searchParams.get('v');
@@ -92,23 +70,21 @@ const SongDetail = () => {
         <DetailBox
           label="Video de YouTube"
           content={
-            <iframe
-              width="560"
-              height="315"
-              src={embedUrl}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="YouTube Video"
-              className="my-4"
-            ></iframe>
+            <div className="youtube-wrapper">
+              <iframe
+                src={embedUrl}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="YouTube Video"
+              ></iframe>
+            </div>
           }
           isContent={true}
-          blueBackground={false}
         />
       );
     }
-    return null; // No YouTube video to show
+    return null;
   };
 
   return (
@@ -126,9 +102,8 @@ const SongDetail = () => {
         {renderMedia()}
         {renderYoutubeEmbed()}
         <div className="song-detail-comments-section">
-        <AddCommentForm songId={songId} onCommentAdded={handleCommentAdded} />
+          <AddCommentForm songId={songId} onCommentAdded={handleCommentAdded} />
           <h3 className="song-detail-comments-title">Comentarios</h3>
-       
           <CommentList songId={songId} commentUpdateTrigger={commentsUpdateCounter} />
         </div>
       </div>
@@ -146,4 +121,4 @@ const DetailBox = ({ label, content, isContent }) => {
   );
 };
 
-export default SongDetail;
+export default SongDetail

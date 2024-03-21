@@ -110,31 +110,45 @@ html, body {
 
 @media (max-width: 768px) {
   .app-navbar {
-    flex-direction: column; /* Barra de navegación en columna para espacios reducidos */
-    padding: 0.5rem;
+    flex-direction: column;
+    justify-content: center; /* Centra los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    padding: 0.3rem;
+    width: 100%; /* Asegura que la barra de navegación ocupe todo el ancho */
+    /* Comentado: height: 100vh; */ /* Opcional: comentado, pero podría definirse para llenar todo el alto de la pantalla */
+    position: fixed; /* Mantiene la barra de navegación fija en la parte superior */
+    top: 0; /* Posición superior fijada a 0 */
+    left: 0; /* Alinea la barra de navegación a la izquierda de la pantalla */
   }
 
   .app-navbar a, .app-navbar button {
     font-size: 1rem; /* Tamaño de fuente más pequeño para la barra de navegación */
-    margin: 5px 0; /* Ajusta el margen para elementos en disposición vertical */
+    margin: 0.5rem; /* Espacio uniforme alrededor de los enlaces y botones */
+    /* Se asegura de que el texto de los enlaces y botones no tenga sombra para mejor legibilidad */
+    text-shadow: none; 
   }
 
+  /* Asegúrate de que el texto del mensaje de bienvenida se vea bien en dispositivos móviles */
   .welcome-message {
-    font-size: calc(3rem + 2vw); /* Ligeramente más grande para dispositivos medianos */
+    font-size: calc(3rem + 2vw); /* Ajuste del tamaño de fuente para dispositivos medianos */
   }
 
+  /* Ajusta el relleno para dispositivos móviles para evitar que el contenido toque los bordes */
   .homepage-background, .app-container {
-    padding: 0 10px; /* Ajusta el padding para evitar que el contenido toque los bordes de la pantalla */
+    padding: 0 10px;
   }
 }
 
 @media (max-width: 480px) {
   .welcome-message {
-    font-size: calc(2rem + 2vw); /* Ajuste para teléfonos muy pequeños */
+    font-size: calc(2rem + 2vw); /* Tamaño de fuente para teléfonos pequeños */
   }
 }
 
-/* Ajustes para todos los tamaños de pantalla */
+/* Ajuste del tamaño de fuente para todos los tamaños de pantalla */
 .btn, .app-navbar a, .app-navbar button {
-  font-size: calc(1rem + 1vw); /* Tamaño de fuente adaptable según el ancho de la ventana */
+  font-size: calc(1rem + 1vw); /* Fuente que se adapta al tamaño de la ventana */
 }
+
+
+

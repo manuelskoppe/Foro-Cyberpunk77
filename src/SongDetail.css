@@ -1,120 +1,111 @@
-/* SongDetail.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 .song-detail-container {
   font-family: 'Orbitron', sans-serif;
-  color: #0ff; /* Neon blue for the text */
-  background-color: #000; /* Dark background for contrast */
-  border: 1px solid #2e2e2e; /* Slight border for a subtle edge */
+  color: #0ff;
+  background-color: #000;
+  border: 1px solid #2e2e2e;
   padding: 2rem;
-  margin: 2rem auto;
-  max-width: 800px;
+  margin: 2rem auto; /* Ajustado para centrar y dar un margen uniforme */
+  max-width: 60%; /* Ancho máximo adecuado para vistas de ordenador */
   border-radius: 10px;
-  box-shadow: 0 0 20px #0ff; /* Neon blue glow */
-  margin-top: 100px;
+  box-shadow: 0 0 20px #0ff;
+  overflow: hidden;
+  position: relative; /* Asegúrate de que el contenedor es relativo */
+  top: 100px; /* Ajusta este valor según la altura de tu barra de navegación */
 }
 
 .song-detail-header {
-  font-size: 2.5rem; /* Large font size for headers */
+  font-size: 2.5rem;
   margin-bottom: 1rem;
-  text-shadow: 0 0 10px #0ff; /* Neon blue glow */
+  text-shadow: 0 0 10px #0ff;
 }
 
-.song-detail-info {
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  border-left: 3px solid #0ff; /* Neon blue line for a stylistic separator */
-}
 
-.song-detail-lyrics {
-  white-space: pre-wrap; /* Respect line breaks and spaces */
-  background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter background for the lyrics section */
-  padding: 1rem;
+.detail-box {
+  background: rgba(10, 23, 38, 0.8); /* Fondo con transparencia */
+  color: #39ff14; /* Texto neón verde */
+  text-shadow: 0 0 5px #39ff14; /* Sombra para efecto de brillo */
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #39ff14; /* Bordes neón verde */
   border-radius: 5px;
-  margin-top: 1rem;
-  box-shadow: inset 0 0 10px #0ff; /* Inner neon blue glow */
 }
 
-/* If you have buttons or links, you can style them like this */
-.song-detail-button {
-  background-color: #bb00ff; /* Neon purple background */
-  color: white;
-  padding: 10px 15px;
-  border: none;
+.detail-box-label {
+  font-weight: bold;
+}
+
+.detail-box-content {
+  background: transparent; /* Sin fondo para que se vea el fondo del detalle */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.song-detail-image {
+  width: 50%; /* Asumiendo que quieres que la imagen sea de ancho completo */
   border-radius: 5px;
-  margin-right: 10px;
-  cursor: pointer;
-  box-shadow: 0 0 10px #bb00ff; /* Neon purple glow */
-  transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px #39ff14; /* Sombra para efecto de brillo */
+  height: auto; /* Mantiene la proporción de aspecto */
 }
 
-.song-detail-button:hover {
-  background-color: #d000ff; /* Brighter purple on hover */
-  box-shadow: 0 0 20px #d000ff; /* Brighter glow on hover */
+.youtube-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* Proporción 16:9 */
+  height: 0;
 }
 
-.song-detail {
-    font-family: 'Orbitron', sans-serif;
-    color: #0ff; /* Neon blue text color */
-    background-color: #000; /* Dark background */
-    padding: 2rem;
-    margin-top: 4rem; /* Agrega espacio en la parte superior */
-    border-radius: 10px;
-    box-shadow: 0 0 20px #0ff; /* Neon blue glow */
-  }
-  
-  .song-detail-header {
-    color: #0ff;
-    text-shadow: 0 0 10px #0ff; /* Neon blue glow */
-  }
-  
-  .song-detail-content {
-    background-color: #121212; /* Darker background for content */
+.youtube-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .song-detail-container {
+    max-width: 45%; /* Ocupa más ancho en dispositivos medianos */
     padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #bb00ff; /* Neon purple glow */
+    top: 60px; /* Espacio superior ajustado para dispositivos medianos */
+    margin: 1rem auto 2rem; /* Añade margen inferior para evitar la superposición */
+    margin-top: 10px;
+  }
+
+  .song-detail-header {
+    font-size: 2rem; /* Tamaño de fuente reducido para mejor lectura */
+  }
+
+  /* Ajustes para elementos internos para mantener la proporción */
+  .song-detail-image, .youtube-wrapper iframe {
+    width: 100%; /* Hace que la imagen y el vídeo ocupen todo el ancho disponible */
+    height: auto; /* Mantiene la relación de aspecto de la imagen */
   }
 
   .detail-box {
-    background: rgba(10, 23, 38, 0.8); /* Fondo con transparencia */
-    color: #39ff14; /* Texto neón verde */
-    text-shadow: 0 0 5px #39ff14; /* Sombra para efecto de brillo */
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid #39ff14; /* Bordes neón verde */
-    border-radius: 5px;
+    padding: 10px; /* Espaciado interno ajustado */
+    margin-bottom: 1rem; /* Más margen entre cajas de detalle */
   }
-  
-  .detail-box-label {
-    font-weight: bold;
-  }
-  
-  .detail-box-content {
-    background: transparent; /* Sin fondo para que se vea el fondo del detalle */
-    border-radius: 5px; /* Bordes redondeados */
-  }
-  
-  .song-detail-image {
-    width: 100%; /* Asumiendo que quieres que la imagen sea de ancho completo */
-    border-radius: 5px;
-    box-shadow: 0 0 10px #39ff14; /* Sombra para efecto de brillo */
+}
+
+@media (max-width: 480px) {
+  .song-detail-container {
+    max-width: 45%; /* Ocupa casi todo el ancho en dispositivos pequeños */
+    top: 50px; /* Espacio superior ajustado para dispositivos pequeños */
+    padding: 0.5rem; /* Menor padding para más espacio */
+    margin-top: 30px;
   }
 
-  .song-detail-comments-section .song-detail-comments-title {
-    font-size: 2em; /* Tamaño de fuente más grande para el título de comentarios */
-    text-align: center; /* Centrar título */
-    margin: 1rem 0; /* Espaciado antes y después del título */
-    position: relative; /* Necesario para el pseudo-elemento de la flecha */
+  .song-detail-header {
+    font-size: 1.5rem; /* Tamaño de fuente más pequeño para pantallas pequeñas */
   }
-  
-  .song-detail-comments-section .song-detail-comments-title::after {
-    content: '▼'; /* Símbolo de flecha hacia abajo */
-    font-size: 1.5em; /* Tamaño de la flecha */
-    color: #d000ff; /* Color de la flecha */
-    display: block; /* Crea una nueva línea */
-    text-align: center; /* Centrar flecha debajo del título */
-    margin-top: 0.5rem; /* Espacio entre el título y la flecha */
+
+  /* Ajustes para elementos internos para mantener la proporción */
+  .song-detail-image, .youtube-wrapper iframe {
+    width: 100%; /* Hace que la imagen y el vídeo sean de ancho completo */
   }
-  
+
+  .detail-box {
+    padding: 0.5rem; /* Menos padding dentro de las cajas de detalle */
+    margin-bottom: 0.5rem; /* Menos margen entre cajas de detalle */
+  }
+}
